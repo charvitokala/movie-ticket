@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Ticket</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="page">
+
+        <h1 class="instruction">DOUBLE CLICK TO EDIT!</h1>
+
+        <div class="ticket-wrapper">
+
+            <!-- TOP TICKER TEXT -->
+            <div class="ticker top-ticker editable" data-placeholder="KEEP THIS TICKET">
+                KEEP THIS TICKET&nbsp; * &nbsp;KEEP THIS TICKET&nbsp; * &nbsp;KEEP THIS TICKET&nbsp; * &nbsp;KEEP THIS TICKET&nbsp; * &nbsp;KEEP THIS TICKET
+            </div>
+
+            <!-- MAIN TICKET -->
+            <div class="ticket">
+
+                <!-- MAIN CONTENT -->
+                <div class="ticket-main">
+
+                    <h2 class="ticket-title editable">CINEMA TICKET</h2>
+
+                    <div class="ticket-content">
+
+                        <!-- POSTER -->
+                        <div class="poster-container" id="posterContainer">
+                            <img id="posterImage" src="" alt="Movie poster">
+
+                            <div class="upload-placeholder" id="uploadPlaceholder">
+                                <div class="upload-icon">↥</div>
+                                <span>upload image</span>
+                            </div>
+
+                            <input
+                                type="file"
+                                id="posterInput"
+                                accept="image/*"
+                                hidden
+                            >
+                        </div>
+
+
+                        <!-- DETAILS -->
+                        <div class="details">
+
+                            <div class="movie-info">
+
+                                <div class="editable movie-title">
+                                    MOVIE TITLE
+                                </div>
+
+                                <div class="editable small-info">
+                                    DATE
+                                </div>
+
+                                <div class="editable small-info">
+                                    TIME
+                                </div>
+
+                            </div>
+
+
+                            <!-- BOXES -->
+                            <div class="info-boxes">
+
+                                <div class="info-box">
+                                    <div class="box-label editable">SEAT</div>
+                                    <div class="box-value editable">00</div>
+                                </div>
+
+                                <div class="info-box">
+                                    <div class="box-label editable">ROW</div>
+                                    <div class="box-value editable">00</div>
+                                </div>
+
+                                <div class="info-box">
+                                    <div class="box-label editable">RATING</div>
+                                    <div class="box-value editable">00</div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TICKET NUMBER -->
+                <div class="ticket-number">
+
+                    <div class="number editable">
+                        B12310508
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTTOM TICKER -->
+            <div class="ticker bottom-ticker editable">
+                KEEP THIS TICKET&nbsp; * &nbsp;KEEP THIS TICKET&nbsp; * &nbsp;KEEP THIS TICKET&nbsp; * &nbsp;KEEP THIS TICKET&nbsp; * &nbsp;KEEP THIS TICKET
+            </div>
+
+        </div>
+
+
+        <h1 class="instruction bottom-instruction">
+            DOUBLE CLICK TO EDIT!
+        </h1>
+
+
+        <!-- DOWNLOAD BUTTON -->
+        <button id="downloadButton">
+            DOWNLOAD TICKET
+        </button>
+
+    </div>
+
+
+    <!-- html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
