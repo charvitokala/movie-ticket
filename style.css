@@ -330,62 +330,387 @@ body {
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* ==========================================
+   MOBILE — REDESIGNED LAYOUT
+========================================== */
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
 
     .page {
-        padding: 30px 10px 50px;
+        width: 100%;
+        min-height: 100vh;
+        padding: 28px 12px 45px;
+        overflow-x: hidden;
     }
 
+    /* -------------------------
+       INSTRUCTIONS
+    ------------------------- */
+
     .instruction {
-        font-size: 26px;
+        font-size: 24px;
         letter-spacing: -1px;
-        text-align: center;
+        line-height: 1.1;
+        margin-bottom: 24px;
     }
+
+    .bottom-instruction {
+        margin-top: 28px;
+        margin-bottom: 24px;
+    }
+
+
+    /* -------------------------
+       TICKET
+    ------------------------- */
 
     .ticket-wrapper {
         width: 100%;
+        max-width: 500px;
     }
+
+
+    /* -------------------------
+       TOP / BOTTOM TICKER
+    ------------------------- */
+
+    .ticker {
+        width: 100%;
+        height: 27px;
+
+        font-size: 10px;
+
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+
+    /* -------------------------
+       MAIN TICKET
+    ------------------------- */
 
     .ticket {
+        width: 100%;
         height: auto;
-        min-height: 330px;
+        min-height: 440px;
+
+        display: block;
+
+        position: relative;
+
+        border-left: 2px solid var(--black);
+        border-right: 2px solid var(--black);
     }
+
+
+    /* -------------------------
+       MAIN CONTENT
+    ------------------------- */
 
     .ticket-main {
-        padding: 20px;
+        width: 100%;
+        min-height: 440px;
+
+        border-top: 2px solid var(--black);
+        border-bottom: 2px solid var(--black);
+
+        /*
+         * Leave space on the right for
+         * the ticket number strip.
+         */
+        padding: 25px 58px 28px 22px;
     }
+
+
+    /* -------------------------
+       TITLE
+    ------------------------- */
 
     .ticket-title {
-        font-size: 38px;
+        width: 100%;
+
+        font-size: clamp(29px, 9vw, 43px);
+
+        letter-spacing: -2px;
+        line-height: 1;
+
+        margin-bottom: 24px;
+
+        white-space: normal;
+        text-align: center;
     }
 
+
+    /* -------------------------
+       POSTER + DETAILS
+    ------------------------- */
+
     .ticket-content {
-        gap: 15px;
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 20px;
+
+        width: 100%;
     }
+
+
+    /* -------------------------
+       POSTER
+    ------------------------- */
+
+    .poster-container {
+        width: 145px;
+        height: 190px;
+
+        flex-shrink: 0;
+    }
+
+    .upload-icon {
+        font-size: 28px;
+    }
+
+    .upload-placeholder {
+        font-size: 8px;
+    }
+
+
+    /* -------------------------
+       DETAILS
+    ------------------------- */
+
+    .details {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .movie-info {
+        width: 100%;
+
+        text-align: center;
+
+        margin-bottom: 18px;
+    }
+
+
+    .movie-title {
+        font-size: 16px;
+        line-height: 1.2;
+
+        margin-bottom: 5px;
+    }
+
+
+    .small-info {
+        font-size: 12px;
+        line-height: 17px;
+    }
+
+
+    /* -------------------------
+       SEAT / ROW / RATING
+    ------------------------- */
+
+    .info-boxes {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+
+    .info-box {
+        width: 72px;
+        height: 82px;
+
+        border: 2px solid var(--black);
+
+        padding-top: 9px;
+
+        flex-shrink: 0;
+    }
+
+
+    .box-label {
+        font-size: 10px;
+    }
+
+
+    .box-value {
+        font-size: 20px;
+
+        margin-top: 11px;
+    }
+
+
+    /* -------------------------
+       TICKET NUMBER
+    ------------------------- */
+
+    .ticket-number {
+        position: absolute;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 42px;
+
+        border-left: 2px solid var(--black);
+
+        border-top: none;
+        border-bottom: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .number {
+        font-size: 17px;
+
+        writing-mode: vertical-rl;
+
+        transform: rotate(180deg);
+
+        letter-spacing: 1px;
+    }
+
+
+    /* -------------------------
+       COLOUR PICKER
+    ------------------------- */
+
+    .color-picker {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 11px;
+
+        flex-wrap: wrap;
+
+        margin-top: 2px;
+        margin-bottom: 25px;
+    }
+
+
+    .color-dot {
+        width: 34px;
+        height: 34px;
+
+        flex-shrink: 0;
+    }
+
+
+    /* -------------------------
+       DOWNLOAD BUTTON
+    ------------------------- */
+
+    #downloadButton {
+        width: auto;
+        max-width: 100%;
+
+        padding: 12px 20px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* ==========================================
+   EXTRA SMALL PHONES
+========================================== */
+
+@media (max-width: 400px) {
+
+    .page {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+
+    .instruction {
+        font-size: 20px;
+    }
+
+
+    .ticket-main {
+        padding-left: 16px;
+        padding-right: 52px;
+    }
+
+
+    .ticket-title {
+        font-size: 27px;
+    }
+
 
     .poster-container {
         width: 125px;
-        height: 170px;
+        height: 165px;
     }
+
+
+    .movie-title {
+        font-size: 14px;
+    }
+
+
+    .small-info {
+        font-size: 11px;
+    }
+
 
     .info-boxes {
-        gap: 6px;
+        gap: 5px;
     }
+
 
     .info-box {
-        width: 65px;
-        height: 90px;
+        width: 62px;
+        height: 74px;
     }
+
+
+    .box-label {
+        font-size: 9px;
+    }
+
+
+    .box-value {
+        font-size: 18px;
+    }
+
 
     .ticket-number {
-        width: 50px;
+        width: 38px;
     }
 
+
     .number {
-        font-size: 21px;
+        font-size: 15px;
+    }
+
+
+    .color-picker {
+        gap: 8px;
+    }
+
+
+    .color-dot {
+        width: 30px;
+        height: 30px;
     }
 }
