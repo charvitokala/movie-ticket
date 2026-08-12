@@ -437,9 +437,31 @@ body {
     }
 
 
-    /* ======================================
-       ACTUAL TICKET
-    ====================================== */
+    @media (max-width: 700px) {
+
+    /* THE ACTUAL TICKET */
+    .ticket {
+        background-color: #e78b9a !important;
+        border: 2px solid #000 !important;
+    }
+
+    /* EVERYTHING INSIDE THE TICKET */
+    .ticket-main {
+        background-color: #e78b9a !important;
+    }
+
+    /* BOTTOM TICKET NUMBER */
+    .ticket-number {
+        background-color: #e78b9a !important;
+        border-top: 2px solid #000 !important;
+    }
+
+    /* SIDE KEEP THIS TICKET STRIPS */
+    .ticker {
+        background-color: #e78b9a !important;
+    }
+
+}
 
     .ticket {
 
