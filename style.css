@@ -331,7 +331,7 @@ body {
 
 
 /* ==========================================
-   MOBILE TICKET — PORTRAIT VERSION
+   MOBILE TICKET — FINAL VERSION
 ========================================== */
 
 @media (max-width: 700px) {
@@ -343,7 +343,7 @@ body {
     .page {
         width: 100%;
         min-height: 100vh;
-        padding: 35px 0 40px;
+        padding: 28px 0 35px;
         box-sizing: border-box;
     }
 
@@ -353,49 +353,55 @@ body {
     ====================================== */
 
     .instruction {
-        font-size: 20px;
-        line-height: 1.3;
+        font-size: 19px;
+        line-height: 1.2;
         text-align: center;
-        margin: 0 0 35px;
+
+        margin: 0 0 30px;
     }
 
     .bottom-instruction {
-        margin-top: 30px;
-        margin-bottom: 0;
+        margin-top: 28px;
     }
 
 
     /* ======================================
-       WHOLE TICKET
+       TICKET WRAPPER
     ====================================== */
 
     .ticket-wrapper {
-        position: relative;
 
-        width: calc(100% - 44px);
-        max-width: 420px;
+        /* MUCH SMALLER */
+        width: calc(100% - 80px);
+
+        max-width: 360px;
 
         margin: 0 auto;
+
+        position: relative;
 
         box-sizing: border-box;
     }
 
 
     /* ======================================
-       TOP / BOTTOM STRIPS
-       These become LEFT / RIGHT strips
+       SIDE KEEP THIS TICKET STRIPS
     ====================================== */
 
     .ticker {
+
         position: absolute;
 
         top: 0;
         bottom: 0;
 
-        width: 42px;
-        height: auto;
+        width: 30px;
+        height: 100%;
+
+        background: var(--ticket-color);
 
         display: flex;
+
         align-items: center;
         justify-content: center;
 
@@ -403,17 +409,17 @@ body {
 
         white-space: nowrap;
 
-        font-size: 11px;
-        line-height: 1;
+        font-size: 9px;
 
-        z-index: 10;
+        z-index: 5;
     }
 
 
-    /* first ticker = LEFT */
+    /* LEFT STRIP */
 
     .ticket-wrapper .ticker:first-child {
-        left: -42px;
+
+        left: -30px;
 
         writing-mode: vertical-rl;
 
@@ -421,53 +427,63 @@ body {
     }
 
 
-    /* second ticker = RIGHT */
+    /* RIGHT STRIP */
 
     .ticket-wrapper .ticker:last-child {
-        right: -42px;
+
+        right: -30px;
 
         writing-mode: vertical-rl;
     }
 
 
     /* ======================================
-       MAIN TICKET
+       ACTUAL TICKET
     ====================================== */
 
     .ticket {
+
         position: relative;
 
         width: 100%;
-        height: auto;
 
-        min-height: 680px;
+        min-height: 560px;
+
+        height: auto;
 
         box-sizing: border-box;
 
-        border: 2px solid var(--black);
+        /* IMPORTANT */
+        background: var(--ticket-color) !important;
 
-        display: block;
+        border: 2px solid #000;
 
-        background: var(--ticket-color);
+        overflow: hidden;
     }
 
 
     /* ======================================
-       MAIN CONTENT
+       MAIN TICKET AREA
     ====================================== */
 
     .ticket-main {
+
         width: 100%;
-        min-height: 680px;
+
+        min-height: 560px;
 
         box-sizing: border-box;
 
-        padding: 30px 30px 0;
+        background: var(--ticket-color) !important;
 
         border: none;
 
+        padding: 24px 20px 62px;
+
         display: flex;
+
         flex-direction: column;
+
         align-items: center;
     }
 
@@ -477,16 +493,18 @@ body {
     ====================================== */
 
     .ticket-title {
+
         width: 100%;
 
         text-align: center;
 
-        font-size: 34px;
+        font-size: 29px;
+
         line-height: 1;
 
-        letter-spacing: -1.5px;
+        letter-spacing: -1px;
 
-        margin: 0 0 24px;
+        margin: 0 0 18px;
 
         white-space: nowrap;
     }
@@ -497,9 +515,11 @@ body {
     ====================================== */
 
     .ticket-content {
+
         width: 100%;
 
         display: flex;
+
         flex-direction: column;
 
         align-items: center;
@@ -509,19 +529,25 @@ body {
 
 
     .poster-container {
-        width: 100%;
-        max-width: 270px;
 
-        height: 245px;
+        width: 205px;
 
-        margin: 0 auto 22px;
+        height: 180px;
+
+        margin: 0 auto 18px;
 
         flex-shrink: 0;
+
+        background: #bdbdbd;
+
+        overflow: hidden;
     }
 
 
     .poster-container img {
+
         width: 100%;
+
         height: 100%;
 
         object-fit: cover;
@@ -529,13 +555,15 @@ body {
 
 
     /* ======================================
-       MOVIE INFORMATION
+       MOVIE DETAILS
     ====================================== */
 
     .details {
+
         width: 100%;
 
         display: flex;
+
         flex-direction: column;
 
         align-items: flex-start;
@@ -543,35 +571,39 @@ body {
 
 
     .movie-info {
+
         width: 100%;
 
-        margin-bottom: 18px;
+        margin-bottom: 15px;
 
         text-align: left;
     }
 
 
     .movie-title {
-        font-size: 21px;
+
+        font-size: 18px;
 
         line-height: 1.1;
 
-        margin-bottom: 7px;
+        margin-bottom: 5px;
     }
 
 
     .small-info {
-        font-size: 15px;
+
+        font-size: 13px;
 
         line-height: 1.35;
     }
 
 
     /* ======================================
-       SEAT / ROW / RATING
+       PRETTY INFO BOXES
     ====================================== */
 
     .info-boxes {
+
         width: 100%;
 
         display: flex;
@@ -580,43 +612,51 @@ body {
 
         align-items: stretch;
 
-        gap: 12px;
+        gap: 8px;
 
         margin: 0;
     }
 
 
     .info-box {
-        width: 78px;
-        height: 87px;
+
+        width: 65px;
+
+        height: 70px;
 
         box-sizing: border-box;
 
-        border: 2px solid var(--black);
+        border: 2px solid #000;
+
+        background: transparent;
 
         display: flex;
+
         flex-direction: column;
 
         align-items: center;
+
         justify-content: center;
 
-        padding: 6px;
+        padding: 5px;
     }
 
 
     .box-label {
-        font-size: 11px;
+
+        font-size: 8px;
 
         line-height: 1;
 
-        margin-bottom: 11px;
+        margin-bottom: 8px;
 
         text-transform: uppercase;
     }
 
 
     .box-value {
-        font-size: 23px;
+
+        font-size: 19px;
 
         line-height: 1;
 
@@ -626,10 +666,10 @@ body {
 
     /* ======================================
        TICKET NUMBER
-       MOVES TO BOTTOM
     ====================================== */
 
     .ticket-number {
+
         position: absolute;
 
         left: 0;
@@ -637,30 +677,30 @@ body {
         bottom: 0;
 
         width: 100%;
-        height: 56px;
+
+        height: 47px;
 
         box-sizing: border-box;
 
-        border-left: none;
-        border-right: none;
+        background: var(--ticket-color) !important;
 
-        border-top: 2px solid var(--black);
+        border-top: 2px solid #000;
 
         display: flex;
 
         align-items: center;
-        justify-content: center;
 
-        writing-mode: horizontal-tb;
+        justify-content: center;
     }
 
 
     .ticket-number .number {
+
         writing-mode: horizontal-tb;
 
         transform: none;
 
-        font-size: 21px;
+        font-size: 17px;
 
         letter-spacing: 1px;
     }
@@ -671,24 +711,32 @@ body {
     ====================================== */
 
     .color-picker {
+
+        width: 100%;
+
         display: flex;
 
         justify-content: center;
-        align-items: center;
 
-        gap: 10px;
+        align-items: center;
 
         flex-wrap: wrap;
 
-        margin-top: 25px;
+        gap: 8px;
+
+        margin-top: 22px;
 
         padding: 0 10px;
+
+        box-sizing: border-box;
     }
 
 
     .color-dot {
-        width: 34px;
-        height: 34px;
+
+        width: 29px;
+
+        height: 29px;
 
         flex-shrink: 0;
 
@@ -697,113 +745,132 @@ body {
 
 
     /* ======================================
-       DOWNLOAD
+       DOWNLOAD BUTTON
     ====================================== */
 
     #downloadButton {
-        margin-top: 20px;
 
-        font-size: 12px;
+        margin-top: 18px;
 
-        padding: 12px 20px;
+        font-size: 11px;
+
+        padding: 10px 18px;
     }
 }
 
 
 /* ==========================================
-   SMALL PHONES
+   VERY SMALL PHONES
 ========================================== */
 
-@media (max-width: 400px) {
-
-    .page {
-        padding-top: 25px;
-    }
+@media (max-width: 380px) {
 
     .ticket-wrapper {
-        width: calc(100% - 38px);
-    }
 
+        width: calc(100% - 70px);
 
-    .ticket-wrapper .ticker:first-child {
-        left: -38px;
-    }
-
-    .ticket-wrapper .ticker:last-child {
-        right: -38px;
+        max-width: 330px;
     }
 
 
     .ticker {
-        width: 38px;
-        font-size: 9px;
+
+        width: 26px;
+
+        font-size: 8px;
+    }
+
+
+    .ticket-wrapper .ticker:first-child {
+
+        left: -26px;
+    }
+
+
+    .ticket-wrapper .ticker:last-child {
+
+        right: -26px;
     }
 
 
     .ticket {
-        min-height: 610px;
+
+        min-height: 525px;
     }
 
 
     .ticket-main {
-        min-height: 610px;
 
-        padding: 25px 22px 0;
+        min-height: 525px;
+
+        padding: 22px 16px 58px;
     }
 
 
     .ticket-title {
-        font-size: 29px;
 
-        margin-bottom: 20px;
+        font-size: 26px;
+
+        margin-bottom: 16px;
     }
 
 
     .poster-container {
-        max-width: 235px;
-        height: 210px;
 
-        margin-bottom: 19px;
+        width: 185px;
+
+        height: 160px;
+
+        margin-bottom: 16px;
     }
 
 
     .movie-title {
-        font-size: 18px;
+
+        font-size: 17px;
     }
 
 
     .small-info {
-        font-size: 13px;
+
+        font-size: 12px;
     }
 
 
     .info-boxes {
-        gap: 7px;
+
+        gap: 6px;
     }
 
 
     .info-box {
-        width: 70px;
-        height: 80px;
+
+        width: 60px;
+
+        height: 66px;
     }
 
 
     .box-label {
-        font-size: 9px;
+
+        font-size: 7px;
     }
 
 
     .box-value {
-        font-size: 20px;
+
+        font-size: 18px;
     }
 
 
     .ticket-number {
-        height: 52px;
+
+        height: 44px;
     }
 
 
     .ticket-number .number {
-        font-size: 18px;
+
+        font-size: 16px;
     }
 }
