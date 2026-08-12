@@ -81,46 +81,115 @@ posterInput.addEventListener("change", function () {
 });
 
 
-/* =================================
-   DOWNLOAD TICKET
-================================= */
+// ==========================================
+// DOWNLOAD TICKET WITH TRANSPARENT CUTOUTS
+// ==========================================
 
 const downloadButton = document.getElementById("downloadButton");
 
-downloadButton.addEventListener("click", async function () {
+if (downloadButton) {
 
-    // Make sure editing is finished
-    document.activeElement.blur();
+    downloadButton.addEventListener("click", async () => {
 
-    const ticket = document.querySelector(".ticket-wrapper");
+        const ticketWrapper = document.querySelector(".ticket-wrapper");
 
-    try {
+        if (!ticketWrapper) {
+            console.error("Ticket wrapper not found.");
+            return;
+        }
 
-        const canvas = await html2canvas(ticket, {
+        try {
 
-            scale: 3,
+            // Create canvas
+            const canvas = await html2canvas(ticketWrapper, {
+                scale: 3,
+                backgroundColor: null,
+                useCORS: true
+            });
 
-            backgroundColor: null,
+            const ctx = canvas.getContext("2d");
 
-            useCORS: true
+            /*
+             * The semicircles are transparent cut-outs.
+             *
+             * We calculate their positions based on the
+             * ticket wrapper dimensions and erase them
+             * from the downloaded canvas.
+             */
 
-        });
+            const wrapperRect = ticketWrapper.getBoundingClientRect();
+
+            const scaleX = canvas.width / wrapperRect.width;
+            const scaleY = canvas.height / wrapperRect.height;
+
+            // Position of the cutouts
+            const cutoutSize = 76;
+
+            const cutoutY = 139;
+
+            const leftX = -38;
+            const rightX = wrapperRect.width - 38;
+
+            // Convert to canvas coordinates
+            const leftCenterX =
+                (leftX + cutoutSize / 2) * scaleX;
+
+            const rightCenterX =
+                (rightX + cutoutSize / 2) * scaleX;
+
+            const centerY =
+                (cutoutY + cutoutSize / 2) * scaleY;
+
+            const radius =
+                (cutoutSize / 2) * Math.min(scaleX, scaleY);
+
+            // Erase the semicircle areas
+            ctx.globalCompositeOperation = "destination-out";
+
+            ctx.beginPath();
+            ctx.arc(
+                leftCenterX,
+                centerY,
+                radius,
+                0,
+                Math.PI * 2
+            );
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(
+                rightCenterX,
+                centerY,
+                radius,
+                0,
+                Math.PI * 2
+            );
+            ctx.fill();
+
+            // Reset canvas mode
+            ctx.globalCompositeOperation = "source-over";
 
 
-        const link = document.createElement("a");
+            // Download
+            const link = document.createElement("a");
 
-        link.download = "my-movie-ticket.png";
+            link.download = "my-movie-ticket.png";
 
-        link.href = canvas.toDataURL("image/png");
+            link.href = canvas.toDataURL("image/png");
 
-        link.click();
+            link.click();
 
-    } catch (error) {
+        } catch (error) {
 
-        console.error("Could not download ticket:", error);
+            console.error(
+                "Could not create ticket:",
+                error
+            );
 
-        alert("Something went wrong while creating the ticket.");
+            alert("Something went wrong while downloading.");
 
-    }
+        }
 
-});
+    });
+
+}

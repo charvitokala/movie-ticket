@@ -330,48 +330,6 @@ body {
 }
 
 
-/* Left semicircle */
-
-.ticket-wrapper::before {
-    content: "";
-
-    position: absolute;
-
-    left: -38px;
-    top: 139px;
-
-    width: 76px;
-    height: 76px;
-
-    background: #eeeeee;
-
-    border-radius: 50%;
-
-    z-index: 5;
-}
-
-
-/* Right semicircle */
-
-.ticket-wrapper::after {
-    content: "";
-
-    position: absolute;
-
-    right: -38px;
-    top: 139px;
-
-    width: 76px;
-    height: 76px;
-
-    background: #eeeeee;
-
-    border-radius: 50%;
-
-    z-index: 5;
-}
-
-
 /* =========================
    MOBILE
 ========================= */
