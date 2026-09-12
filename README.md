@@ -1,24 +1,14 @@
-# Movie Ticket Booking
+# Movie Ticket Design
 
-A web application for browsing movies and booking movie tickets through a simple and interactive interface.
+A web application for creating retro movie tickets through a simple and interactive interface.
 
 ## Live Demo
 
 [Movie Ticket Booking](https://movie-ticket-charvi2.vercel.app/)
 
-## Features
-
-* Browse available movies
-* View movie details
-* Select showtimes
-* Choose seats
-* Book movie tickets
-* Responsive user interface
-
 ## Tech Stack
 
-* React / Next.js
-* JavaScript / TypeScript
+* HTML
 * CSS
 * Vercel
 
